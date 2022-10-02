@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using InventoryApp.Models;
+using InventoryApp.ViewModel;
+
 namespace InventoryApp.Controllers
 {
     public class EmployeesController : Controller
@@ -15,7 +17,30 @@ namespace InventoryApp.Controllers
         }
         public IActionResult Index()
         {
-            var employees = applicationDB.employees.ToList();
+            //  var employees = applicationDB.employees.ToList();
+
+            var employees = from d in applicationDB.Departments
+                            join
+                            e in applicationDB.employees
+                            on d.Id equals e.Departments.Id
+                            join p in applicationDB.Projects                          
+                            on e.Id equals p.Employees.Id
+                            into both from b in both.DefaultIfEmpty()
+                            select new EmployeeViewModel()
+                            {
+                                Id = e.Id,
+                                Name = e.Name,
+                                Email = e.Email,
+                                Address = e.Address,
+                                Department = d.Name,
+                                Description = d.Description,
+                                Title=b.Title==null?"No project Assigned yet.":b.Title,
+                                ProjectDescription=b.Description==null?"N/A":b.Description,
+                                StartDate=b.StartDate==null?"N/A":b.StartDate,
+                                EndDate=b.EndDate
+                            };
+
+
             return View(employees);
         }
 

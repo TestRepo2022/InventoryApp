@@ -1,15 +1,21 @@
-﻿@model IEnumerable<InventoryApp.Models.Employees>
+﻿@model IEnumerable<InventoryApp.ViewModel.EmployeeViewModel>
 @{ 
     Layout = "_Layout";
 }
 
 <a asp-action="Create" asp-controller="Employees">Create</a>
-<table class="table">
+<table class="table table-bordered">
     <tr>
         <th>Id</th>
         <th>Name</th>
         <th>Email</th>
         <th>Address</th>
+        <th>Department</th>
+        <th>About Department</th>
+        <th>Assigned project</th>
+        <th>About Project</th>
+        <th>Start Date</th>
+
         <th>Action</th>
     </tr>
 
@@ -20,6 +26,11 @@
                     <td>@emp.Name</td>
                     <td>@emp.Email</td>
                     <td>@emp.Address</td>
+                    <td>@emp.Department</td>
+                    <td>@emp.Description</td>
+                    <td>@emp.Title</td>
+                    <td>@emp.ProjectDescription</td>
+                    <td>@emp.StartDate</td>
                     <td>
                         <a asp-action="Edit" asp-controller="Employees" asp-route-id="@emp.Id" class="btn btn-sm btn-info" onclick="return confirm('Are you sure to edit this record ?')" >Edit</a>||
                         <a asp-action="Delete" asp-controller="Employees" asp-route-id="@emp.Id" class="btn btn-sm btn-info" onclick="return confirm('Are you sure to delete this record ?')" >Delete</a>
