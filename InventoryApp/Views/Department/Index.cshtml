@@ -1,0 +1,14 @@
+﻿@model IEnumerable<InventoryApp.Models.Departments>
+@{
+    Layout = "_Layout";
+}
+
+<div class="container">
+    <div > Department List</div>
+<ol>
+    @foreach(var de in Model)
+            {
+                <li title="Click on department to show employee list"><a asp-action="EmployeeList" asp-controller="Department" asp-route-id="@de.Id">@de.Name</a></li>
+            }
+</ol>
+</div>

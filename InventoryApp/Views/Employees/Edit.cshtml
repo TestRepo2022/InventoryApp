@@ -1,0 +1,33 @@
+﻿@model InventoryApp.Models.Employees
+@{
+    Layout = "_Layout";
+}
+
+<div class="row">
+    <div class="col-6 offset-3">
+        <form asp-controller="Employees" asp-action="Edit" method="post">
+
+            <div class="form-group">
+                <label>Enter Name</label>
+                <input type="hidden" asp-for="Id" />
+                <input class="form-control" type="text" asp-for="Name" />
+            </div>
+
+            <div class="form-group">
+                <label>Enter Email</label>
+                <input class="form-control" type="text" asp-for="Email" />
+            </div>
+
+
+            <div class="form-group">
+                <label>Enter Address</label>
+                <input class="form-control" type="text" asp-for="Address" />
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+
+        </form>
+    </div>
+</div>

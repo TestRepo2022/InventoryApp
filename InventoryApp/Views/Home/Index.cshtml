@@ -1,0 +1,48 @@
+﻿@model IEnumerable<InventoryApp.Models.Customer>
+@{ 
+    Layout = "_Layout";
+}
+
+<h1>Welcome to my First MVC Application</h1>
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Address</th>
+    </tr>
+    @foreach(var cust in Model)
+            {
+                <tr>
+                    <td>@cust.Name</td>
+                    <td>@cust.Address</td>
+
+                </tr>
+            }
+</table>
+
+
+
+
+
+
+@*<h2>Message: @ViewData["message"]</h2>
+
+<ol>
+    @foreach (var student in (List<string>)ViewData["students"])
+    {
+        <li>@student</li>
+    }
+</ol>*@
+
+
+@*<h2>Message: @ViewBag.message</h2>
+
+<ol>
+    @foreach(var student in ViewBag.students)
+            {
+                <li>@student</li>
+            }
+</ol>*@
+
+
+

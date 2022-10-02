@@ -1,0 +1,28 @@
+﻿@model IEnumerable<InventoryApp.Models.Projects>
+@{
+    Layout = "_Layout";
+}
+
+<div class="container">
+    <div> Project Details</div>
+   <table class="table table-bordered">
+       <tr>
+           <th>Id</th>
+           <th>Title</th>
+           <th>Description</th>
+           <th>Start Date</th>
+           <th>End Date</th>
+       </tr>
+       @foreach(var pp in Model)
+            {
+                <tr>
+                    <td>@pp.Id</td>
+                    <td>@pp.Title</td>
+                    <td>@pp.Description</td>
+                    <td>@pp.StartDate</td>
+                    <td>@pp.EndDate</td>
+
+                </tr>
+            }
+   </table>
+</div>
